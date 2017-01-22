@@ -21,6 +21,16 @@ var useful = new Useful();
 and after this you can call all function with the useful variable.
 
 ------------------
+## Example
+
+```Javascript
+useful.randomInt(); // 99
+useful.randomInt({ max: 50, min: 30 }); // 34
+useful.randomString(); // MY5Oym1qlKbI1Ym5
+useful.randomString({ length: 20, shuffle: 'example' }); // aeeapeexmlemxeeleexe
+```
+
+------------------
 ## API Documentation
 You can view all API Documentation here: http://www.biuni.it/useful
 
