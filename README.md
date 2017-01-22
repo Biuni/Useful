@@ -3,7 +3,7 @@
 
 ------------------
 ## Install
-Download the library and add to your code.
+[Download the library](dist/Useful.js) and add to your code.
 ```HTML
 <script src="Useful.js"></script>
 ```
