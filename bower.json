@@ -1,0 +1,19 @@
+{
+  "name": "Useful",
+  "homepage": "https://github.com/Biuni/Useful",
+  "authors": [
+    "Gianluca Bonifazi <info@biuni.it>"
+  ],
+  "description": "Write less. Use(full) these API.",
+  "main": "dist/Useful.js",
+  "keywords": [
+    "useful",
+    "javascript",
+    "api"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ]
+}

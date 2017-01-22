@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Useful - Write less. Use(ful) these API.</title>
+
+	<link rel="stylesheet" type="text/css" href="css/monokai-sublime.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="Biuni - Gianluca Bonifazi - www.biuni.it">
+
+    <meta name="theme-color" content="#FFFB8E">
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+</head>
+<body>
+
+
+<header>
+	<h1><a href="index.html"><img src="img/bulb.png"></a><span>Useful</span></h1>
+	<h2>Write less. Use(ful) these API.</h2>
+</header>
+<nav>
+    <ul>
+        <li><a href="https://github.com/Biuni/Useful">Github</a></li>
+        <li>&middot;</li>
+        <li><a href="documentation.html">Documentation</a></li>
+        <li>&middot;</li>
+        <li><a href="http://www.biuni.it">Author</a></li>
+    </ul>
+</nav>
+
+
+<div class="container">
+    <section>
+        <h3>Initialization</h3>
+
+        <pre><code class="javascript">var useful = new Useful();</code></pre>
+
+        <hr>
+
+        <h3>Random</h3>
+
+        <h4><a name="randomInt"><img src="img/link.png"></a> randomInt</h4>
+        <pre><code class="javascript">useful.randomInt(); // 99</code></pre>
+        <pre><code class="javascript">useful.randomInt({ max: 50, min: 30 }); // 34</code></pre>
+        <pre><code class="javascript">useful.randomInt({ max: 50 }); // 49 </code></pre>
+        <small>Return a random integer.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">max:</pre> Maximum value. Default 100. <u>Optional.</u><br>
+            - <pre class="var-inline">min:</pre> Minimum value. Default 0. <u>Optional.</u>
+        </small>
+
+        <hr>
+
+        <h4><a name="randomString"><img src="img/link.png"></a> randomString</h4>
+        <pre><code class="javascript">useful.randomString(); // MY5Oym1qlKbI1Ym5</code></pre>
+        <pre><code class="javascript">useful.randomString({ length: 20, shuffle: 'example' }); // aeeapeexmlemxeeleexe</code></pre>
+        <pre><code class="javascript">useful.randomString({ length: 20 }); // ahdsaASDASH21312asdA</code></pre>
+        <pre><code class="javascript">useful.randomString({ shuffle: 'example' }); // mxaplexam</code></pre>
+        <small>Return a random string.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">length:</pre> Maximum length of the string. Default 16. <u>Optional.</u><br>
+            - <pre class="var-inline">shuffle:</pre> The alphabet to be mixed to create the string. <u>Optional.</u>
+        </small>
+
+        <hr>
+
+        <h4><a name="rndItem"><img src="img/link.png"></a> rndItem</h4>
+        <pre><code class="javascript">var number = [0,1,2,3,4,5,6,7,8,9];
+
+useful.rndItem(number); // 5</code></pre>
+        <small>Return a random element into the array.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">array:</pre> Array of elements.
+        </small>
+
+        <hr>
+
+        <h3>Time</h3>
+
+        <h4><a name="timeRemain"><img src="img/link.png"></a> timeRemain</h4>
+        <pre><code class="javascript">useful.timeRemain('December 31 2017 23:59:59'); // {days: 210, hours: 22, minutes: 53, seconds: 15}</code></pre>
+        <pre><code class="javascript">useful.timeRemain('December 31 2017 23:59:59').days; // 210</code></pre>
+        <pre><code class="javascript">useful.timeRemain('December 31 2017 23:59:59').hours; // 22</code></pre>
+        <pre><code class="javascript">useful.timeRemain('December 31 2017 23:59:59').minutes; // 53</code></pre>
+        <pre><code class="javascript">useful.timeRemain('December 31 2017 23:59:59').seconds; // 15</code></pre>
+        <small>Return the time remained.</small>
+        <h5>Avaiable format:</h5>
+        <pre>'2017-12-31'
+'2017-12-31 23:59:59'
+'December 31 2017'
+'December 31 2017 23:59:59'</pre>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">date:</pre> The date to calculate the remaining time.<br>
+        </small>
+
+        <hr>
+
+        <h3>Countdown</h3>
+
+        <h4><a name="countdown"><img src="img/link.png"></a> CountDown (timeRemain)</h4>
+        <pre><code class="javascript">var deadline = '2017-12-31 10:45:00';
+var clock = document.getElementById('clock');
+
+function countdown(){
+    var time = useful.timeRemain(deadline);
+    var type = time.days +':'+ time.hours +':'+ time.minutes +':'+ time.seconds;
+    clock.innerHTML = type;
+}
+
+setInterval(countdown, 1000); // 343:16:54:46</code></pre>
+        <small>Return the time remaining for each second and print it onto a DOM element.</small>
+
+        <hr>
+
+        <h3>Boolean</h3>
+
+        <h4><a name="isNative"><img src="img/link.png"></a> isNative</h4>
+        <pre><code class="javascript">useful.isNative(alert); // true</code></pre>
+        <pre><code class="javascript">useful.isNative(my_function); // false</code></pre>
+        <small>Return true if the function is Javascript native or false if the function is customized.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">identifier:</pre> Function identifier.<br>
+        </small>
+
+        <hr>
+
+        <h4><a name="storageSupport"><img src="img/link.png"></a> storageSupport</h4>
+        <pre><code class="javascript">useful.storageSupport(); // true || false</code></pre>
+        <small>Return true if the browser support localStorage and sessionStorage. False otherwise.</small>
+
+        <hr>
+
+        <h3>CSS</h3>
+
+        <h4><a name="insertStyle"><img src="img/link.png"></a> insertStyle</h4>
+        <pre><code class="javascript">useful.insertStyle('.class { background: green; color: white; font-family: sans-serif; }');</code></pre>
+        <small>Insert style into head.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">css:</pre> CSS snippet.<br>
+        </small>
+
+        <hr>
+
+        <h3>ARRAY</h3>
+
+        <h4><a name="inArray"><img src="img/link.png"></a> inArray</h4>
+        <pre><code class="javascript">var number = [0,1,2,3,4,5,6,7,8,9];
+
+useful.inArray(2, number); // true
+useful.inArray(10, number); // false</code></pre>
+        <small>Return true if the element is into the array. False otherwise.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">element:</pre> Element to find.<br>
+            - <pre class="var-inline">array:</pre> Array for research.
+        </small>
+
+        <hr>
+
+        <h4><a name="dumpArray"><img src="img/link.png"></a> dumpArray</h4>
+        <pre><code class="javascript">var number = [0,1,2,3,4,5,6,7,8,9];
+
+useful.dumpArray(number);
+
+/*
+    '0' => "0"
+    '1' => "1"
+    '2' => "2"
+    '3' => "3"
+    '4' => "4"
+    '5' => "5"
+    '6' => "6"
+    '7' => "7"
+    '8' => "8"
+    '9' => "9"
+*/</code></pre>
+        <small>Print the array like the "print_r" function of PHP.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">array:</pre> Array of elements.
+        </small>
+
+        <hr>
+
+        <h3>UTILITY</h3>
+
+        <h4><a name="escapeHTML"><img src="img/link.png"></a> escapeHTML</h4>
+        <pre><code class="javascript" id="escapeHTML">useful.escapeHTML('&lt;html&gt;&lt;head&gt;&lt;title&gt;&lt;&#x2F;title&gt;&lt;&#x2F;head&gt;&lt;body&gt;&lt;&#x2F;html&gt;');</code></pre>
+        <small>Return the escape string of HTML.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">html:</pre> HTML snippet.
+        </small>
+
+        <hr>
+
+        <h4><a name="cleanURL"><img src="img/link.png"></a> cleanURL</h4>
+        <pre><code class="javascript">useful.cleanURL('This is the title of my new post'); // this-is-the-title-of-my-new-post</code></pre>
+        <small>Clean the url for search engine optimization or just to tidy up the site navigation.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">url:</pre> The title or the URL to clean it.
+        </small>
+
+        <hr>
+
+        <h3>STORAGE</h3>
+
+        <h4><a name="setLStorage"><img src="img/link.png"></a> setLStorage</h4>
+        <pre><code class="javascript" id="escapeHTML">useful.setLStorage('key','value');</code></pre>
+        <small>Method used to set a Local Storage.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">key:</pre> The key of local storage.
+            - <pre class="var-inline">value:</pre> The value of local storage.
+        </small>
+
+        <hr>
+
+        <h4><a name="getLStorage"><img src="img/link.png"></a> getLStorage</h4>
+        <pre><code class="javascript">useful.getLStorage('key'); // value</code></pre>
+        <small>Return the value of Local Storage corresponding to the parameter key.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">key:</pre> The key of local storage.
+        </small>
+
+        <hr>
+
+        <h4><a name="removeLStorage"><img src="img/link.png"></a> removeLStorage</h4>
+        <pre><code class="javascript">useful.removeLStorage('key');</code></pre>
+        <small>Method used to remove a Local Storage.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">key:</pre> The key of local storage.
+        </small>
+
+        <hr>
+
+        <h4><a name="clearLStorage"><img src="img/link.png"></a> clearLStorage</h4>
+        <pre><code class="javascript">useful.clearLStorage();</code></pre>
+        <small>Method used to clear all Local Storage.</small>
+
+        <hr>
+
+        <h4><a name="setSStorage"><img src="img/link.png"></a> setSStorage</h4>
+        <pre><code class="javascript" id="escapeHTML">useful.setSStorage('key','value');</code></pre>
+        <small>Method used to set a Session Storage.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">key:</pre> The key of local storage.
+            - <pre class="var-inline">value:</pre> The value of local storage.
+        </small>
+
+        <hr>
+
+        <h4><a name="getSStorage"><img src="img/link.png"></a> getSStorage</h4>
+        <pre><code class="javascript">useful.getSStorage('key'); // value</code></pre>
+        <small>Return the value of Session Storage corresponding to the parameter key.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">key:</pre> The key of local storage.
+        </small>
+
+        <hr>
+
+        <h4><a name="removeSStorage"><img src="img/link.png"></a> removeSStorage</h4>
+        <pre><code class="javascript">useful.removeSStorage('key');</code></pre>
+        <small>Method used to remove a Session Storage.</small>
+        <h5>Params:</h5>
+        <small>
+            - <pre class="var-inline">key:</pre> The key of local storage.
+        </small>
+
+        <hr>
+
+        <h4><a name="clearSStorage"><img src="img/link.png"></a> clearSStorage</h4>
+        <pre><code class="javascript">useful.clearSStorage();</code></pre>
+        <small>Method used to clear all Session Storage.</small>
+
+        <hr>
+
+    </section>
+</div>
+
+
+<script src="js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="../dist/useful.js"></script>
+<script>
+    useful = new Useful();
+
+    var escaped = document.getElementById('escapeHTML');
+    escaped.appendChild(document.createTextNode('\n\n// '+useful.escapeHTML('<html><head><title></title></head><body></html>')));
+</script>
